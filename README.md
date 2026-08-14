@@ -1,3 +1,7 @@
+# Demo Video
+
+https://github.com/user-attachments/assets/c9c88117-c0ea-4de0-a300-befafde7cd14
+
 # Intelligent Corporate Knowledge Assistant API
 
 Production-ready RAG API built with **FastAPI**, **FAISS**, and **LLM Guardrails** to answer internal policy questions based on corporate HR documents.
