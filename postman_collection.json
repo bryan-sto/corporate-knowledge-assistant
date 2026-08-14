@@ -1,0 +1,104 @@
+{
+  "info": {
+    "_postman_id": "8f3b6c7a-9d2e-4b1a-8c3f-5e6a7b8c9d0e",
+    "name": "Corporate Knowledge Assistant API",
+    "description": "Postman collection for testing the Corporate Knowledge Assistant API (RAG + Guardrails).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Health Check",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "health"
+          ]
+        },
+        "description": "Verifies that the API service is online."
+      },
+      "response": []
+    },
+    {
+      "name": "2. Ingest Document",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "dev/[PT TMD] BUKU SAKU KEBIJAKAN SUMBER DAYA MANUSIA.pdf",
+              "description": "Upload the policy PDF document here"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8000/ingest",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "ingest"
+          ]
+        },
+        "description": "Uploads PDF, executes heading-aware chunking, generates embeddings, and saves the FAISS index."
+      },
+      "response": []
+    },
+    {
+      "name": "3. Chat",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"question\": \"Berapa plafon klaim kacamata untuk level Manager?\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/chat",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "chat"
+          ]
+        },
+        "description": "Ask questions about internal company policies."
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+# Environment variables & Secrets
+.env
+.env.*
+!.env.example
+
+# Local Data & Indexes
+data/
+*.faiss
+metadata.json
+
+# Python Virtual Environment & Caches
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Temporary & Test Scratch Files
+scratch/
+.pytest_cache/
+.pyrtk_logs/
+dev/
+*.rar
+*.zip
